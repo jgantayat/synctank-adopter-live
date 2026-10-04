@@ -43,9 +43,6 @@
           },
           "amount": {
             "type": "number"
-          },
-          "currency": {
-            "type": "string"
           }
         }
       }
