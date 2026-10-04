@@ -46,6 +46,9 @@
           },
           "currency": {
             "type": "string"
+          },
+          "fee": {
+            "type": "number"
           }
         }
       }
