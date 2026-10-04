@@ -1,0 +1,18 @@
+name: Contract check
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jgantayat/synctank/.github/actions/contract-check@v1
+        with:
+          candidate-spec: payments-api/openapi.json
+          baseline-spec: payments-api/contract/openapi.baseline.json
+          spec-key: payments-api
+          anthropic-api-key: ${{ secrets.ANTHROPIC_API_KEY }}
